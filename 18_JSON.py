@@ -17,6 +17,10 @@ else:
     print("All your json data:")
     printData(data)
 
+def saveData(data):
+    with open(fileName, 'w') as json_file:
+        json.dump(data, json_file)
+
 while True:
     inputData = input("What you want to do - Add data (+), quit program (q) or delete all data (-),show all data (*)\n")
     if(inputData == "q"):
@@ -25,9 +29,11 @@ while True:
     if (inputData == "-"):
         data = []
         print("All data removed")
+        saveData(data)
         continue
     if (inputData == "*"):
         printData(data)
+        saveData(data)
         continue
     if (inputData == "+"):
         print("Specyfy your car:")
@@ -37,9 +43,9 @@ while True:
         height = input("Height \n")
         newData = {"Brand":brand,"Color":color,"Price":price,"Height":height}
         data.append(newData)
+        saveData(data)
 
         continue
     print("Wrong command")
 
-with open(fileName, 'w') as json_file:
-  json.dump(data, json_file)
+saveData(data)

@@ -28,3 +28,8 @@ for i in matrix_Y:
 print("-----------")
 for i in result:
     print(i)
+
+X = np.array(matrix_X)
+Y = np.array(matrix_Y)
+
+print(np.dot(X,Y))
