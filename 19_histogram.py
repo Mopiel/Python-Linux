@@ -14,20 +14,21 @@ plt.imshow(picture)
 hight=len(picture)
 width=len(picture[0])
 
-print('Maximum RGB tones in this image {}'.format(picture.max()))
-print('Minimum RGB tones in this image {}'.format(picture.min()))
-
-print("Piksel dimension of picutre ",width," x ",hight)
+print("Piksel",width,"x",hight)
 
 
 RGB= []
 
 def calculate(z):
-    list_tones = []
-    for i in range(0,width):
-        for j in range(0,hight):
-            list_tones.append(picture[j,i,z])
-    RGB.append(list_tones)
+    listTones = []
+    for i in range(width):
+        for j in range(hight):
+            listTones.append(picture[j,i,z])
+    returnList =[]
+    for n in range(255):
+        returnList.append(listTones.count(n))
+    RGB.append(returnList)
+
 
 
 threads = []
@@ -43,12 +44,15 @@ for thread in threads:
 
 print("done")
 
+yLabel = []
+
+for y in range(255):
+    yLabel.append(y)
 
 for x,colors in enumerate(RGB):
     plt.figure(x+2)
     plt.title("Histogram")
-    plt.hist(colors, 255, color='b')
-
+    plt.plot(yLabel,colors, color='b')
     plt.xlabel("Kolor {}".format(x))
 
 plt.show()
