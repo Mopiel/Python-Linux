@@ -14,7 +14,7 @@ plt.imshow(picture)
 hight=len(picture)
 width=len(picture[0])
 
-print("Piksel",width,"x",hight)
+print("Pixels",width,"x",hight)
 
 
 RGB= []
@@ -34,7 +34,6 @@ def calculate(z):
 threads = []
 
 for z in range(3):
-    print("one")
     processThread = Thread(target=calculate, args=[z])
     processThread.start()
     threads.append(processThread)
@@ -53,6 +52,6 @@ for x,colors in enumerate(RGB):
     plt.figure(x+2)
     plt.title("Histogram")
     plt.plot(yLabel,colors, color='b')
-    plt.xlabel("Kolor {}".format(x))
+    plt.xlabel("Color {}".format(x))
 
 plt.show()

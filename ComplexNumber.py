@@ -51,7 +51,7 @@ class Complex():
         return Complex(-self.real, -self.imag)
 
     def __str__(self):
-        if(self.imag>0):
+        if(self.imag>=0):
             return "{}+{}i".format(self.real, self.imag)
         else:
             return "{}{}i".format(self.real, self.imag)
