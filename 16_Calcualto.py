@@ -13,4 +13,3 @@ for id,d in enumerate(newdata):
 
 newdata = "".join(newdata)
 print(data,"=",eval(newdata))
-
